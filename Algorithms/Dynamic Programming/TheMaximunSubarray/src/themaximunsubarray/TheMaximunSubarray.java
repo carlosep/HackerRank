@@ -1,6 +1,5 @@
 package themaximunsubarray;
 
-import com.sun.jndi.url.iiopname.iiopnameURLContextFactory;
 import java.util.Scanner;
 
 /**
@@ -13,8 +12,8 @@ public class TheMaximunSubarray {
      * @param args the command line arguments
      */
     
-    public static int kadaneAlg(int[] array){
-        int maxSum = Integer.MIN_VALUE, currentMaxSum = 0;
+    public static int kadaneAlg(int[] array){               // looks for all positive contiguous
+        int maxSum = Integer.MIN_VALUE, currentMaxSum = 0;  // segments of the array and determine the biggest sum.
         
         for(int i = 0; i< array.length; i++){
             currentMaxSum += array[i];
