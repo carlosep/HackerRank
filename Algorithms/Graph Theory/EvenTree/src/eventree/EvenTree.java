@@ -13,20 +13,16 @@ public class EvenTree {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Adicione V e E");
-        int vertices = in.nextInt();
-        int edges = in.nextInt();
-        int counter = 0;
-        int root = 1;
-        boolean first = true;
+    
+    
+    public static void separateTrees(int root, int[] uiArray, int[]viArray){
         ArrayList<Integer> vertList = new ArrayList<Integer>();
         
-        for(int i = 0; i < vertices-1; i++){
-            System.out.println("Adicione os dois numeros");
-            int ui = in.nextInt();
-            int vi = in.nextInt();
+        boolean first = true;
+        
+        for(int i = 0; i < uiArray.length-1; i++){
+            int ui = uiArray[i];
+            int vi = viArray[i];
             
             if(vi == root){
                 if(first == true){
@@ -35,7 +31,6 @@ public class EvenTree {
                 }else{
                     vertList.add(0);
                     vertList.add(ui);
-                    counter++;
                 }
             }else{
                 //procure o numero e addicione depois dele
@@ -53,10 +48,28 @@ public class EvenTree {
                 }
             }
         }
-        for(int i = 0; i < vertList.size(); i++){
+        /*for(int i = 0; i < vertList.size(); i++){   //Don't forget to remove this by the end.
             System.out.println(vertList.get(i));
+        }*/
+    }
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int vertices = in.nextInt();
+        int edges = in.nextInt();
+        int counter = 0;
+        
+        
+        int[] ui = new int[vertices];
+        int[] vi = new int[vertices];
+        
+        for(int i = 0; i < vertices-1; i++){
+            ui[i] = in.nextInt();
+            vi[i] = in.nextInt();
         }
-
+        
+        separateTrees(1, ui, vi);
+        
     }
 }
 /* Stack Overload Solution
