@@ -17,13 +17,11 @@ public class EvenTree {
     
     public static void separateTrees(int root, int[] uiArray, int[]viArray){
         ArrayList<Integer> vertList = new ArrayList<Integer>();
-        
         boolean first = true;
         
         for(int i = 0; i < uiArray.length-1; i++){
             int ui = uiArray[i];
             int vi = viArray[i];
-            
             if(vi == root){
                 if(first == true){
                     vertList.add(ui);
@@ -33,7 +31,6 @@ public class EvenTree {
                     vertList.add(ui);
                 }
             }else{
-                //procure o numero e addicione depois dele
                 for(int j = 0; j < vertList.size(); j++){
                     if(vertList.get(j) == vi){
                         if(j+1 != vertList.size()){
@@ -43,7 +40,6 @@ public class EvenTree {
                             vertList.add(ui);
                             break;
                         }
-                        
                     }
                 }
             }
@@ -59,7 +55,6 @@ public class EvenTree {
         int edges = in.nextInt();
         int counter = 0;
         
-        
         int[] ui = new int[vertices];
         int[] vi = new int[vertices];
         
@@ -69,7 +64,6 @@ public class EvenTree {
         }
         
         separateTrees(1, ui, vi);
-        
     }
 }
 /* Stack Overload Solution
